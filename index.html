@@ -245,6 +245,7 @@
         <a href="mailto:enquiries@yourlifeguard.com.au">enquiries@yourlifeguard.com.au</a>
         <a href="#partners">Partner with us</a>
         <a href="#contact">Request a callback</a>
+        <a href="privacy-policy.html">Privacy Policy</a>
       </div>
     </div>
 
@@ -257,7 +258,26 @@
 <script src="logos-lab.js"></script>
 <script src="app.js"></script>
 <script>
-(function(){if(window.parent===window)return;var lastH=0;function p(){var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);if(h&&h!==lastH){lastH=h;try{window.parent.postMessage({ylg:'h',h:h},'*');}catch(e){}}}if(window.ResizeObserver){new ResizeObserver(p).observe(document.documentElement);}window.addEventListener('load',p);window.addEventListener('resize',p);setInterval(p,800);})();
+(function(){
+  if(window.parent===window)return;
+  // iframe height bridge
+  var lastH=0;
+  function p(){var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);if(h&&h!==lastH){lastH=h;try{window.parent.postMessage({ylg:'h',h:h},'*');}catch(e){}}}
+  if(window.ResizeObserver){new ResizeObserver(p).observe(document.documentElement);}
+  window.addEventListener('load',p);
+  window.addEventListener('resize',p);
+  setInterval(p,800);
+  // tel:/mailto: clicks — bubble to parent so iOS Safari opens dialer / mail
+  document.addEventListener('click', function(e){
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
+    if (!a) return;
+    e.preventDefault();
+    var href = a.getAttribute('href');
+    try { window.parent.postMessage({ylg:'open', href: href}, '*'); } catch(err) {}
+    // also try to navigate top directly (works on Android Chrome)
+    try { window.top.location.href = href; } catch(err) {}
+  });
+})();
 </script>
 </body>
 </html>
