@@ -5,19 +5,31 @@
    - iframe helpers: height reporting + tel:/mailto: bubble-up for iOS Safari */
 
 (function () {
+  /* ---------- logo injection ---------- */
   function paintLogos() {
     var mark = (window.LogoLab && window.LogoLab.flagShield) ? window.LogoLab.flagShield('color') : '';
     document.querySelectorAll('[data-logo]').forEach(function (slot) { slot.innerHTML = mark; });
   }
 
+  /* ---------- header: sticky border + (home) transparent-over-hero → solid ---------- */
   function initHeader() {
     var h = document.querySelector('.site-header');
     if (!h) return;
-    var onScroll = function () { h.classList.toggle('scrolled', window.scrollY > 12); };
+    var isHome = document.body.classList.contains('home');
+    var hero = document.querySelector('.fbhero');
+    var onScroll = function () {
+      var y = window.scrollY;
+      h.classList.toggle('scrolled', y > 12);
+      if (isHome && hero) {
+        h.classList.toggle('solid', y > (hero.offsetHeight - 70));
+      }
+    };
     window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
     onScroll();
   }
 
+  /* ---------- mobile nav ---------- */
   function initMobileNav() {
     var toggle = document.querySelector('.nav-toggle');
     var links = document.querySelector('.nav-links');
@@ -33,6 +45,7 @@
     });
   }
 
+  /* ---------- scroll reveal (progressive enhancement, never hides content) ---------- */
   function initReveal() {
     var els = document.querySelectorAll('.reveal');
     function show(e) { e.classList.add('in'); }
@@ -53,6 +66,7 @@
     setTimeout(function () { els.forEach(show); }, 1600);
   }
 
+  /* ---------- contact form (segmented control only — real POST to backend) ---------- */
   function initForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
@@ -65,10 +79,14 @@
         if (who) who.value = b.getAttribute('data-who');
       });
     });
+    /* NOTE: no preventDefault — the form submits to its `action` (FormSubmit)
+       and the user is redirected to thanks.html via the _next hidden field. */
   }
 
+  /* ---------- iframe helpers (used when embedded via the Carrd snippet) ---------- */
   function initIframeBridge() {
-    if (window.parent === window) return;
+    if (window.parent === window) return; // not embedded
+    // 1) report document height so a non-fullscreen parent can size us
     function reportHeight() {
       var h = document.documentElement.scrollHeight;
       try { window.parent.postMessage({ ylg: 'height', value: h }, '*'); } catch (e) {}
@@ -78,6 +96,7 @@
     if (window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.documentElement);
     setInterval(reportHeight, 1200);
 
+    // 2) bubble tel:/mailto: clicks up to the top window (iOS Safari blocks them in-iframe)
     document.addEventListener('click', function (e) {
       var a = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="mailto:"]');
       if (!a) return;
