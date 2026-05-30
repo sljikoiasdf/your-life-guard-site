@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>YLG — Share card</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body{background:#0c0d10;}
+  .card{
+    position:relative;width:1200px;height:630px;overflow:hidden;
+    font-family:"Plus Jakarta Sans",system-ui,sans-serif;background:#16181D;
+  }
+  .card img.bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 38%;}
+  .scrim{position:absolute;inset:0;background:
+    linear-gradient(95deg, rgba(12,13,16,.94) 30%, rgba(12,13,16,.72) 50%, rgba(12,13,16,.15) 78%, rgba(12,13,16,0) 100%);}
+  .scrim2{position:absolute;inset:0;background:linear-gradient(0deg, rgba(12,13,16,.5) 0%, rgba(12,13,16,0) 36%);}
+  .content{position:absolute;inset:0;padding:64px 72px;display:flex;flex-direction:column;justify-content:space-between;}
+
+  .brand{display:flex;align-items:center;gap:16px;}
+  .brand .mark{width:60px;height:60px;}
+  .brand .mark svg{width:100%;height:100%;display:block;}
+  .brand .wm{display:flex;flex-direction:column;line-height:1;}
+  .brand .wm .t{font-size:14px;letter-spacing:.42em;font-weight:700;color:rgba(255,255,255,.6);margin-bottom:6px;}
+  .brand .wm .m{font-size:30px;font-weight:800;color:#fff;letter-spacing:-0.02em;}
+  .brand .wm .m .g{color:#FF5757;}
+
+  .mid{max-width:760px;}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:16px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:#FAEE38;margin-bottom:22px;}
+  .eyebrow::before{content:"";width:34px;height:3px;background:#FAEE38;border-radius:3px;}
+  h1{font-size:68px;line-height:1.02;font-weight:800;color:#fff;letter-spacing:-0.03em;}
+  h1 .ac{color:#FF5757;}
+
+  .foot{display:flex;align-items:center;gap:28px;}
+  .phone{display:inline-flex;align-items:center;gap:12px;background:#DE3939;color:#fff;font-weight:800;font-size:26px;padding:14px 26px;border-radius:999px;letter-spacing:.01em;}
+  .phone svg{width:24px;height:24px;}
+  .url{font-size:22px;font-weight:600;color:rgba(255,255,255,.82);}
+</style>
+</head>
+<body>
+<div class="card" id="card">
+  <img class="bg" src="hero-lifeguard.jpg" alt="">
+  <div class="scrim"></div>
+  <div class="scrim2"></div>
+  <div class="content">
+    <div class="brand">
+      <span class="mark" data-mark></span>
+      <span class="wm"><span class="t">YOUR</span><span class="m">Life <span class="g">Guard</span></span></span>
+    </div>
+    <div class="mid">
+      <span class="eyebrow">Life insurance, made human</span>
+      <h1>Protect everything <span class="ac">you've worked for</span></h1>
+    </div>
+    <div class="foot">
+      <span class="phone">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+        1300 718 859
+      </span>
+      <span class="url">yourlifeguard.com.au</span>
+    </div>
+  </div>
+</div>
+<script src="logos-lab.js"></script>
+<script>
+  if(window.LogoLab&&window.LogoLab.flagShield){
+    document.querySelectorAll('[data-mark]').forEach(function(el){el.innerHTML=window.LogoLab.flagShield('color');});
+  }
+</script>
+</body>
+</html>
