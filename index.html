@@ -193,10 +193,11 @@
 
     <form class="form-card reveal" id="contact-form"
           action="https://formsubmit.co/enquiries@yourlifeguard.com.au" method="POST">
-      <input type="hidden" name="_subject" value="New enquiry from yourlifeguard.com.au">
+      <input type="hidden" name="_subject" value="New website enquiry — Your Life Guard">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://sljikoiasdf.github.io/your-life-guard-site/thanks.html">
+      <input type="hidden" name="_autoresponse" value="Thanks for getting in touch with Your Life Guard. We've received your enquiry and one of our team will be in contact during the time you nominated. If you need to reach us sooner, please call 1300 718 859. — The Your Life Guard team">
       <input type="text" name="_honey" style="display:none">
 
       <div class="form-body">
@@ -206,21 +207,21 @@
             <button type="button" data-who="Individual" aria-pressed="true">An individual</button>
             <button type="button" data-who="Partner" aria-pressed="false">A broker / partner</button>
           </div>
-          <input type="hidden" id="who-input" name="who" value="Individual">
+          <input type="hidden" id="who-input" name="Enquiry Type" value="Individual">
         </div>
         <div class="field-row">
-          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" placeholder="Jane Citizen" required></div>
-          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="0400 000 000" required></div>
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="Full Name" type="text" placeholder="Jane Citizen" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel" placeholder="0400 000 000" required></div>
         </div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="jane@email.com" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="Email" type="email" placeholder="jane@email.com" required></div>
         <div class="field"><label for="f-time">Preferred time to call</label>
-          <select id="f-time" name="time">
+          <select id="f-time" name="Preferred Contact Time">
             <option>Morning (9am–12pm)</option>
             <option>Afternoon (12pm–5pm)</option>
             <option>After hours</option>
           </select>
         </div>
-        <div class="field"><label for="f-msg">What's on your mind? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label><textarea id="f-msg" name="message" placeholder="A little about your situation…"></textarea></div>
+        <div class="field"><label for="f-msg">What's on your mind? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label><textarea id="f-msg" name="Message" placeholder="A little about your situation…"></textarea></div>
         <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Request a callback</button>
         <p class="form-note">By submitting you agree to be contacted about your enquiry. Any advice is general only — see the disclaimer below. We'll never share your details.</p>
       </div>
