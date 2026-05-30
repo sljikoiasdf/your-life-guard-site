@@ -2,7 +2,7 @@
    - injects the brand logo mark
    - sticky-header state, scroll reveals, mobile nav
    - contact form: audience segmented control (real submit to FormSubmit)
-   - iframe helpers: height reporting + tel:/mailto: bubble-up for iOS Safari */
+   - iframe helpers: height reporting + tel/mailto top-frame anchors for iOS Safari */
 
 (function () {
   /* ---------- logo injection ---------- */
@@ -86,7 +86,25 @@
   /* ---------- iframe helpers (used when embedded via the Carrd snippet) ---------- */
   function initIframeBridge() {
     if (window.parent === window) return; // not embedded
-    // 1) report document height so a non-fullscreen parent can size us
+
+    /* 1) Top-frame anchors for tel:/mailto: — iOS Safari blocks tel: in cross-origin
+          iframes AND shows a "blocked from automatically starting a call" warning if
+          you route the navigation through postMessage (the user-gesture context is
+          lost across the message hop). Setting target="_top" on the anchor itself
+          lets the browser handle it natively as a user-initiated top-frame nav. */
+    function tagTopLinks() {
+      document.querySelectorAll('a[href^="tel:"],a[href^="mailto:"]').forEach(function (a) {
+        if (a.getAttribute('target') !== '_top') a.setAttribute('target', '_top');
+        if (!a.getAttribute('rel')) a.setAttribute('rel', 'noopener');
+      });
+    }
+    tagTopLinks();
+    // re-tag if the DOM changes (footer is injected late by footer.js)
+    if (window.MutationObserver) {
+      new MutationObserver(tagTopLinks).observe(document.body, { childList: true, subtree: true });
+    }
+
+    /* 2) Report document height so a non-fullscreen parent can size us. */
     function reportHeight() {
       var h = document.documentElement.scrollHeight;
       try { window.parent.postMessage({ ylg: 'height', value: h }, '*'); } catch (e) {}
@@ -95,14 +113,6 @@
     window.addEventListener('resize', reportHeight);
     if (window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.documentElement);
     setInterval(reportHeight, 1200);
-
-    // 2) bubble tel:/mailto: clicks up to the top window (iOS Safari blocks them in-iframe)
-    document.addEventListener('click', function (e) {
-      var a = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="mailto:"]');
-      if (!a) return;
-      e.preventDefault();
-      try { window.parent.postMessage({ ylg: 'navigate', href: a.getAttribute('href') }, '*'); } catch (err) {}
-    });
   }
 
   function start() {
