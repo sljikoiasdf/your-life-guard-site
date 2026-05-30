@@ -1,23 +1,15 @@
-/* Your Life Guard — site behaviour */
+/* Your Life Guard — site behaviour
+   - injects the brand logo mark
+   - sticky-header state, scroll reveals, mobile nav
+   - contact form: audience segmented control (real submit to FormSubmit)
+   - iframe helpers: height reporting + tel:/mailto: bubble-up for iOS Safari */
+
 (function () {
-  var root = document.documentElement;
-  function markFor(dir, opts) {
-    var L = window.LogoLab || {};
-    return L.flagShield ? L.flagShield('color') : '';
+  function paintLogos() {
+    var mark = (window.LogoLab && window.LogoLab.flagShield) ? window.LogoLab.flagShield('color') : '';
+    document.querySelectorAll('[data-logo]').forEach(function (slot) { slot.innerHTML = mark; });
   }
-  function paintLogos(dir) {
-    document.querySelectorAll('[data-logo]').forEach(function (slot) {
-      var onDark = slot.getAttribute('data-logo') === 'dark';
-      slot.innerHTML = markFor(dir, { onDark: onDark });
-    });
-  }
-  var DIRS = ['a', 'b', 'c'];
-  function applyDirection(dir) {
-    if (DIRS.indexOf(dir) === -1) dir = 'a';
-    root.setAttribute('data-direction', dir);
-    paintLogos(dir);
-  }
-  function initSwitcher() { applyDirection('c'); }
+
   function initHeader() {
     var h = document.querySelector('.site-header');
     if (!h) return;
@@ -25,6 +17,7 @@
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
   }
+
   function initMobileNav() {
     var toggle = document.querySelector('.nav-toggle');
     var links = document.querySelector('.nav-links');
@@ -39,6 +32,7 @@
       });
     });
   }
+
   function initReveal() {
     var els = document.querySelectorAll('.reveal');
     function show(e) { e.classList.add('in'); }
@@ -58,6 +52,7 @@
     });
     setTimeout(function () { els.forEach(show); }, 1600);
   }
+
   function initForm() {
     var form = document.getElementById('contact-form');
     if (!form) return;
@@ -70,14 +65,35 @@
         if (who) who.value = b.getAttribute('data-who');
       });
     });
-    form.addEventListener('submit', function () {
-      try {
-        var btn = form.querySelector('button[type="submit"]');
-        if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
-      } catch (e) {}
+  }
+
+  function initIframeBridge() {
+    if (window.parent === window) return;
+    function reportHeight() {
+      var h = document.documentElement.scrollHeight;
+      try { window.parent.postMessage({ ylg: 'height', value: h }, '*'); } catch (e) {}
+    }
+    window.addEventListener('load', reportHeight);
+    window.addEventListener('resize', reportHeight);
+    if (window.ResizeObserver) new ResizeObserver(reportHeight).observe(document.documentElement);
+    setInterval(reportHeight, 1200);
+
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="tel:"],a[href^="mailto:"]');
+      if (!a) return;
+      e.preventDefault();
+      try { window.parent.postMessage({ ylg: 'navigate', href: a.getAttribute('href') }, '*'); } catch (err) {}
     });
   }
-  function start() { initSwitcher(); initHeader(); initMobileNav(); initReveal(); initForm(); }
+
+  function start() {
+    paintLogos();
+    initHeader();
+    initMobileNav();
+    initReveal();
+    initForm();
+    initIframeBridge();
+  }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', start);
   else start();
 })();

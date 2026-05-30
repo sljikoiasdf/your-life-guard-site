@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-AU" data-direction="c">
+<html lang="en-AU">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -7,6 +7,7 @@
 <meta name="description" content="Your Life Guard helps Australian families arrange life insurance — Life, Income Protection, TPD and Trauma cover. General advice, made simple.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="stylesheet" href="styles.css">
@@ -45,9 +46,10 @@
     <div class="hero-copy reveal">
       <span class="eyebrow">Life insurance, made human</span>
       <h1>Insurance that helps protect everything <span class="accent">you've worked for</span></h1>
-      <p class="lead">Things happen in life. We help make sure your mortgage, your income and the people you love are looked after if they do.</p>
+      <p class="lead">Things happen in life. We help protect your mortgage, your income and the people you love if they do.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#contact">Let's talk
+        <a class="btn btn-primary btn-lg" href="#contact">
+          Let's talk
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost btn-lg" href="tel:1300718859">Call 1300 718 859</a>
@@ -72,6 +74,7 @@
       <h2 class="section-title">Four kinds of cover that guard your life</h2>
       <p class="lead">Buying life insurance isn't just picking the lowest price. We help you understand the options, how they protect you, and why you might need each one.</p>
     </div>
+
     <div class="products">
       <article class="product reveal">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
@@ -94,6 +97,7 @@
         <p>Can't work, can't earn — so who pays the mortgage? Income Protection replaces up to 70% of your income after a waiting period, so you can focus on your health, not your finances.</p>
       </article>
     </div>
+
     <div class="super-note reveal">
       <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
       <p><strong>Life, TPD and Income Protection can be funded through your super.</strong> When you've just taken on a mortgage and cashflow is tight, that means staying protected with no hit to your take-home pay.</p>
@@ -137,7 +141,7 @@
     </div>
     <div class="steps">
       <div class="step reveal"><h3>Quick discussion</h3><p>We call when it suits you, talk through why you're enquiring, and explain exactly how we can help.</p></div>
-      <div class="step reveal"><h3>Understanding your needs</h3><p>We walk through the products, how they're used, and together work out what you should be covered for.</p></div>
+      <div class="step reveal"><h3>Understanding what you want</h3><p>We walk through the products, how they're used, and work out what you're looking to cover.</p></div>
       <div class="step reveal"><h3>Comparing your options</h3><p>We look at cover from the insurers on our panel and walk you through the options — how they work and what they cost.</p></div>
       <div class="step reveal"><h3>Putting your cover in place</h3><p>We handle the documentation, flag any medical requirements up front, and keep you informed the whole way through.</p></div>
     </div>
@@ -187,10 +191,14 @@
       </div>
     </div>
 
-    <form class="form-card reveal" id="contact-form" action="https://formsubmit.co/enquiries@yourlifeguard.com.au" method="POST">
-      <input type="hidden" name="_subject" value="Website enquiry — Your Life Guard">
+    <form class="form-card reveal" id="contact-form"
+          action="https://formsubmit.co/enquiries@yourlifeguard.com.au" method="POST">
+      <input type="hidden" name="_subject" value="New enquiry from yourlifeguard.com.au">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_next" value="https://sljikoiasdf.github.io/your-life-guard-site/thanks.html">
+      <input type="text" name="_honey" style="display:none">
+
       <div class="form-body">
         <div class="field">
           <label>I'm enquiring as</label>
@@ -222,62 +230,10 @@
 
 </main>
 
-<footer class="site-footer">
-  <div class="container">
-    <div class="footer-top">
-      <div class="footer-brand">
-        <a class="brand" href="#top" aria-label="Your Life Guard home">
-          <span class="ylg-mark" data-logo="dark"></span>
-          <span class="brand-name">Your Life Guard</span>
-        </a>
-        <p>Life insurance advice that helps protect Australian families' mortgages, income and futures.</p>
-      </div>
-      <div class="footer-col">
-        <h4>Explore</h4>
-        <a href="#cover">What we cover</a>
-        <a href="#matters">Why it matters</a>
-        <a href="#how">How it works</a>
-        <a href="#partners">Partners</a>
-      </div>
-      <div class="footer-col">
-        <h4>Get in touch</h4>
-        <a href="tel:1300718859">1300 718 859</a>
-        <a href="mailto:enquiries@yourlifeguard.com.au">enquiries@yourlifeguard.com.au</a>
-        <a href="#partners">Partner with us</a>
-        <a href="#contact">Request a callback</a>
-        <a href="privacy-policy.html">Privacy Policy</a>
-      </div>
-    </div>
-
-    <div class="disclaimer">
-      <p>Copyright © 2026 Your Life Guard Pty. Ltd. Your Life Guard Pty Ltd and its advisers operate as authorised representatives of Life Experts Pty Ltd ABN 35 647 911 671 Australian Financial Service Licence No. 533827. Your Life Guard and its advisers are only authorised to advise and deal in Life Insurance, Income Protection, Total and Permanent Disability and Trauma Insurance. The contents of this website have been prepared without taking account your objectives, financial situation or needs. Before acquiring any of the financial products on this website, you should consider whether the product is appropriate for you in regards to your own objectives, financial situation and needs. Prior to acquiring a financial product, you should obtain the Product Disclosure Statement relating to that product. This Product Disclosure Statement contains the terms and conditions of that relevant financial product. You should consider the information within this Product Disclosure Statement prior to purchase of a financial product. Product Disclosure Statements for each of the financial products on this website are available by calling us on 1300 718 859 or by visiting the website of the provider of each of the financial products. Please view the <a href="https://saveucomau.sharepoint.com/:b:/s/LifeExperts/IQAUs5DjWaDaS4wtyEu81DFpAeVQ5xB0ianDspOv0teaLDg?e=2vvRMz" target="_blank" rel="noopener">Financial Services Guide here</a> and our <a href="privacy-policy.html">Privacy Policy here</a>. Whilst Your Life Guard attempts to provide comparisons from as many providers as possible, not all providers of Insurance products are included in our comparisons. Prior to making any financial decisions with regards to financial products, we highly recommend that you seek individual taxation and legal advice relevant to your particular situation.</p>
-    </div>
-  </div>
-</footer>
+<div id="ylg-footer"></div>
 
 <script src="logos-lab.js"></script>
+<script src="footer.js"></script>
 <script src="app.js"></script>
-<script>
-(function(){
-  if(window.parent===window)return;
-  // iframe height bridge
-  var lastH=0;
-  function p(){var h=Math.max(document.documentElement.scrollHeight,document.body?document.body.scrollHeight:0);if(h&&h!==lastH){lastH=h;try{window.parent.postMessage({ylg:'h',h:h},'*');}catch(e){}}}
-  if(window.ResizeObserver){new ResizeObserver(p).observe(document.documentElement);}
-  window.addEventListener('load',p);
-  window.addEventListener('resize',p);
-  setInterval(p,800);
-  // tel:/mailto: clicks — bubble to parent so iOS Safari opens dialer / mail
-  document.addEventListener('click', function(e){
-    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href^="mailto:"]') : null;
-    if (!a) return;
-    e.preventDefault();
-    var href = a.getAttribute('href');
-    try { window.parent.postMessage({ylg:'open', href: href}, '*'); } catch(err) {}
-    // also try to navigate top directly (works on Android Chrome)
-    try { window.top.location.href = href; } catch(err) {}
-  });
-})();
-</script>
 </body>
 </html>
