@@ -1,4 +1,4 @@
-/* Your Life Guard — brand marks */
+/* Your Life Guard — brand mark candidates. */
 window.LogoLab = (function () {
   var RED = '#DE3939', YEL = '#FAEE38', YEL2 = '#EFC610', INK = '#16181D', W = '#FFFFFF';
   var SHIELD = 'M32 4 L55 12 V29 C55 43.5 45.2 53.4 32 60 C18.8 53.4 9 43.5 9 29 V12 Z';
