@@ -10,6 +10,11 @@
 <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+<meta name="theme-color" content="#DE3939">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -48,8 +53,7 @@
       <h1>Insurance that helps protect everything <span class="accent">you've worked for</span></h1>
       <p class="lead">Things happen in life. We help protect your mortgage, your income and the people you love if they do.</p>
       <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#contact">
-          Let's talk
+        <a class="btn btn-primary btn-lg" href="#contact">Let's talk
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
         <a class="btn btn-ghost btn-lg" href="tel:1300718859">Call 1300 718 859</a>
@@ -74,7 +78,6 @@
       <h2 class="section-title">Four kinds of cover that guard your life</h2>
       <p class="lead">Buying life insurance isn't just picking the lowest price. We help you understand the options, how they protect you, and why you might need each one.</p>
     </div>
-
     <div class="products">
       <article class="product reveal">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
@@ -97,7 +100,6 @@
         <p>Can't work, can't earn — so who pays the mortgage? Income Protection replaces up to 70% of your income after a waiting period, so you can focus on your health, not your finances.</p>
       </article>
     </div>
-
     <div class="super-note reveal">
       <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
       <p><strong>Life, TPD and Income Protection can be funded through your super.</strong> When you've just taken on a mortgage and cashflow is tight, that means staying protected with no hit to your take-home pay.</p>
@@ -193,11 +195,10 @@
 
     <form class="form-card reveal" id="contact-form"
           action="https://formsubmit.co/enquiries@yourlifeguard.com.au" method="POST">
-      <input type="hidden" name="_subject" value="New website enquiry — Your Life Guard">
+      <input type="hidden" name="_subject" value="New enquiry from yourlifeguard.com.au">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://sljikoiasdf.github.io/your-life-guard-site/thanks.html">
-      <input type="hidden" name="_autoresponse" value="Thanks for getting in touch with Your Life Guard. We've received your enquiry and one of our team will be in contact during the time you nominated. If you need to reach us sooner, please call 1300 718 859. — The Your Life Guard team">
       <input type="text" name="_honey" style="display:none">
 
       <div class="form-body">
@@ -207,21 +208,21 @@
             <button type="button" data-who="Individual" aria-pressed="true">An individual</button>
             <button type="button" data-who="Partner" aria-pressed="false">A broker / partner</button>
           </div>
-          <input type="hidden" id="who-input" name="Enquiry Type" value="Individual">
+          <input type="hidden" id="who-input" name="who" value="Individual">
         </div>
         <div class="field-row">
-          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="Full Name" type="text" placeholder="Jane Citizen" required></div>
-          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="Phone" type="tel" placeholder="0400 000 000" required></div>
+          <div class="field"><label for="f-name">Full name</label><input id="f-name" name="name" type="text" placeholder="Jane Citizen" required></div>
+          <div class="field"><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="0400 000 000" required></div>
         </div>
-        <div class="field"><label for="f-email">Email</label><input id="f-email" name="Email" type="email" placeholder="jane@email.com" required></div>
+        <div class="field"><label for="f-email">Email</label><input id="f-email" name="email" type="email" placeholder="jane@email.com" required></div>
         <div class="field"><label for="f-time">Preferred time to call</label>
-          <select id="f-time" name="Preferred Contact Time">
+          <select id="f-time" name="time">
             <option>Morning (9am–12pm)</option>
             <option>Afternoon (12pm–5pm)</option>
             <option>After hours</option>
           </select>
         </div>
-        <div class="field"><label for="f-msg">What's on your mind? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label><textarea id="f-msg" name="Message" placeholder="A little about your situation…"></textarea></div>
+        <div class="field"><label for="f-msg">What's on your mind? <span style="font-weight:400;color:var(--text-soft);">(optional)</span></label><textarea id="f-msg" name="message" placeholder="A little about your situation…"></textarea></div>
         <button type="submit" class="btn btn-primary btn-lg" style="width:100%;">Request a callback</button>
         <p class="form-note">By submitting you agree to be contacted about your enquiry. Any advice is general only — see the disclaimer below. We'll never share your details.</p>
       </div>
