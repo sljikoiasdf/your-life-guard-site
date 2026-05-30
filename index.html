@@ -28,8 +28,9 @@
 <meta name="theme-color" content="#DE3939">
 <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body class="home">
 
+<!-- ====================== HEADER ====================== -->
 <header class="site-header">
   <div class="container nav">
     <a class="brand" href="#top" aria-label="Your Life Guard home">
@@ -57,31 +58,35 @@
 
 <main id="top">
 
-<section class="hero">
-  <div class="container hero-grid">
-    <div class="hero-copy reveal">
-      <span class="eyebrow">Life insurance, made human</span>
-      <h1>Insurance that helps protect everything <span class="accent">you've worked for</span></h1>
-      <p class="lead">Things happen in life. We help protect your mortgage, your income and the people you love if they do.</p>
-      <div class="hero-actions">
-        <a class="btn btn-primary btn-lg" href="#contact">Let's talk
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-        </a>
-        <a class="btn btn-ghost btn-lg" href="tel:1300718859">Call 1300 718 859</a>
-      </div>
-      <p class="hero-reassure">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-        No pressure — just a conversation about what you need.
-      </p>
-    </div>
-    <div class="hero-media reveal">
-      <div class="photo">
-        <img src="hero-lifeguard.jpg" alt="Australian lifeguard watching the surf at sunrise">
+<!-- ====================== HERO (full-bleed) ====================== -->
+<section class="fbhero">
+  <img class="bg" src="hero-lifeguard.jpg" alt="Australian lifeguard watching the surf at sunrise">
+  <div class="scrim"></div>
+  <div class="scrim-b"></div>
+  <div class="fbhero-body">
+    <div class="container">
+      <div class="fbhero-inner">
+        <span class="eyebrow">Life insurance, made human</span>
+        <h1>Insurance that helps protect everything <span class="accent">you've worked for</span></h1>
+        <p class="lead">Things happen in life. We help protect your mortgage, your income and the people you love if they do.</p>
+        <div class="fbhero-actions">
+          <a class="btn btn-primary btn-lg" href="#contact">
+            Let's talk
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="tel:1300718859">Call 1300 718 859</a>
+        </div>
+        <p class="fbhero-reassure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
+          No pressure — just a conversation about what you need.
+        </p>
       </div>
     </div>
   </div>
+  <div class="scroll-hint">Scroll<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></div>
 </section>
 
+<!-- ====================== COVER ====================== -->
 <section class="block" id="cover">
   <div class="container">
     <div class="block-head reveal">
@@ -89,6 +94,7 @@
       <h2 class="section-title">Four kinds of cover that guard your life</h2>
       <p class="lead">Buying life insurance isn't just picking the lowest price. We help you understand the options, how they protect you, and why you might need each one.</p>
     </div>
+
     <div class="products">
       <article class="product reveal">
         <div class="pico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/></svg></div>
@@ -111,6 +117,7 @@
         <p>Can't work, can't earn — so who pays the mortgage? Income Protection replaces up to 70% of your income after a waiting period, so you can focus on your health, not your finances.</p>
       </article>
     </div>
+
     <div class="super-note reveal">
       <span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></span>
       <p><strong>Life, TPD and Income Protection can be funded through your super.</strong> When you've just taken on a mortgage and cashflow is tight, that means staying protected with no hit to your take-home pay.</p>
@@ -118,6 +125,7 @@
   </div>
 </section>
 
+<!-- ====================== WHY IT MATTERS ====================== -->
 <section class="block reality" id="matters">
   <div class="container">
     <div class="block-head reveal">
@@ -145,6 +153,7 @@
   </div>
 </section>
 
+<!-- ====================== HOW IT WORKS ====================== -->
 <section class="block" id="how">
   <div class="container">
     <div class="block-head reveal">
@@ -153,14 +162,27 @@
       <p class="lead">You tell us what's on your mind. We do the heavy lifting — research, paperwork and follow-ups — and keep you informed the whole way through.</p>
     </div>
     <div class="steps">
-      <div class="step reveal"><h3>Quick discussion</h3><p>We call when it suits you, talk through why you're enquiring, and explain exactly how we can help.</p></div>
-      <div class="step reveal"><h3>Understanding what you want</h3><p>We walk through the products, how they're used, and work out what you're looking to cover.</p></div>
-      <div class="step reveal"><h3>Comparing your options</h3><p>We look at cover from the insurers on our panel and walk you through the options — how they work and what they cost.</p></div>
-      <div class="step reveal"><h3>Putting your cover in place</h3><p>We handle the documentation, flag any medical requirements up front, and keep you informed the whole way through.</p></div>
+      <div class="step reveal">
+        <h3>Quick discussion</h3>
+        <p>We call when it suits you, talk through why you're enquiring, and explain exactly how we can help.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Understanding what you want</h3>
+        <p>We walk through the products, how they're used, and work out what you're looking to cover.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Comparing your options</h3>
+        <p>We look at cover from the insurers on our panel and walk you through the options — how they work and what they cost.</p>
+      </div>
+      <div class="step reveal">
+        <h3>Putting your cover in place</h3>
+        <p>We handle the documentation, flag any medical requirements up front, and keep you informed the whole way through.</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- ====================== PARTNERS (B2B) ====================== -->
 <section class="block partners" id="partners">
   <div class="container">
     <div class="block-head reveal">
@@ -184,6 +206,7 @@
   </div>
 </section>
 
+<!-- ====================== CONTACT ====================== -->
 <section class="contact" id="contact">
   <div class="container contact-grid">
     <div class="contact-aside reveal">
@@ -206,10 +229,12 @@
 
     <form class="form-card reveal" id="contact-form"
           action="https://formsubmit.co/enquiries@yourlifeguard.com.au" method="POST">
+      <!-- FormSubmit configuration -->
       <input type="hidden" name="_subject" value="New enquiry from yourlifeguard.com.au">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
       <input type="hidden" name="_next" value="https://sljikoiasdf.github.io/your-life-guard-site/thanks.html">
+      <!-- honeypot -->
       <input type="text" name="_honey" style="display:none">
 
       <div class="form-body">
@@ -243,6 +268,7 @@
 
 </main>
 
+<!-- ====================== FOOTER + MANDATORY DISCLAIMER ====================== -->
 <div id="ylg-footer"></div>
 
 <script src="logos-lab.js"></script>
